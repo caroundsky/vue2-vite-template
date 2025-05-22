@@ -22,7 +22,7 @@ export default defineConfig({
     vueJsx({
       babelPlugins: [
         ['@babel/plugin-proposal-decorators', { legacy: true }],
-        ['@babel/plugin-proposal-class-properties'],
+        ['@babel/plugin-transform-class-properties'],
       ],
     }),
     svgLoader(),
@@ -69,7 +69,8 @@ export default defineConfig({
 
   server: {
     port: 8080, // 指定端口号
-    host: '0.0.0.0',
+    host: true,
+    allowedHosts: true,
     strictPort: false, // 设为 false 时，若端口已被占用则会尝试下一个可用端口,而不是直接退出
     proxy: {
       // 开发者服务地址
